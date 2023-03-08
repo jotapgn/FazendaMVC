@@ -1,0 +1,44 @@
+﻿@model FazendaMVC.Models.FazendaViewModel
+
+@{
+    ViewData["Title"] = "Exibir";
+}
+
+<h1>Fazenda @Model?.Nome</h1>
+
+<div>
+    <hr />
+    <div class="card">
+        <div class="col-sm-2">
+            <strong>@Html.DisplayNameFor(model => model.Nome)</strong>
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </div>
+    </div>
+    @if (Model?.Animais != null)
+    {
+        <div style="background-color:white">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Tag</td>
+                </tr>
+            </thead>
+            @foreach (var animal in Model.Animais)
+            {
+                <tbody>
+                    <tr>
+                        <td>@animal.Tag</td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+        </div>
+    }
+    <br />
+    <div>
+        <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+    </div>
+
+</div>

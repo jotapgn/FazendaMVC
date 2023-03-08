@@ -1,0 +1,46 @@
+﻿@model IEnumerable<FazendaMVC.Models.FazendaViewModel>
+
+
+@{
+    ViewData["Title"] = "Fazendas";
+}
+
+<h1>Fazendas</h1>
+
+<p>
+
+    <a asp-action="Create" class="btn btn-success">Cadastrar Fazenda</a>
+    <a asp-action="Create" asp-controller="Animal" class="btn btn-success">Cadastrar Animal</a>
+</p>
+<div style="background-color:white;" class="col-md-12">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Código
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Exibir</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

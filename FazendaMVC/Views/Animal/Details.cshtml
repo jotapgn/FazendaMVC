@@ -1,0 +1,23 @@
+﻿@model FazendaMVC.Models.AnimalViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Animal</h1>
+
+<div>
+    <div class="card" style="width: 25rem;">
+        <div class = "col-sm-2">
+            <strong>@Html.DisplayNameFor(model => model.Tag)</strong>
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.Tag)
+        </div>
+        </div>
+       <br />
+        <div>
+            <a asp-action="Index"class="btn btn-secondary">Voltar</a>
+        </div>
+</div>
+
