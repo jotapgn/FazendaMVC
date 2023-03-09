@@ -33,7 +33,7 @@ namespace FazendaMVC.Controllers
                 var fazendaCadastrada = _dbcontext.Fazendas
                                                                 .Where(f => f.Nome.Equals(fazenda.Nome))
                                                                 .FirstOrDefault();
-                if(fazendaCadastrada == null)
+                if (fazendaCadastrada == null)
                 {
                     _dbcontext.Fazendas.Add(fazenda);
                     _dbcontext.SaveChanges();
@@ -43,13 +43,13 @@ namespace FazendaMVC.Controllers
                 else
                 {
                     TempData["AlertMessage"] = "Nome de Fazenda já cadastrado, escolha outro.";
-                     return View();
+                    return View();
                 }
-               
+
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                throw new Exception(ex.Message);
             }
 
         }
@@ -90,7 +90,7 @@ namespace FazendaMVC.Controllers
                                         .Animais
                                         .Where(animalDaFazenda => animalDaFazenda.FazendaId == Id)
                                         .ToList();
-                if(animais.Count > 0)
+                if (animais.Count > 0)
                 {
                     foreach (var animal in animais)
                     {
@@ -100,12 +100,12 @@ namespace FazendaMVC.Controllers
 
                 _dbcontext.Fazendas.Remove(fazendaSelecionada);
                 _dbcontext.SaveChanges();
-                TempData["Message"]  = "Fazenda excluída com successo!";
+                TempData["Message"] = "Fazenda excluída com successo!";
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                throw new Exception(ex.Message);
             }
 
         }

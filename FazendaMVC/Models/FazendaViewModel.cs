@@ -9,6 +9,6 @@ namespace FazendaMVC.Models
         public int Id { get; set; }
         public string Nome { get; set; }
 
-        public List<AnimalViewModel>? Animais { get; set; }
+        public List<AnimalViewModel> Animais { get; set; }
     }
 }

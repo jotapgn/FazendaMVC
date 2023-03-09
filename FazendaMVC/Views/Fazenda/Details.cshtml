@@ -16,24 +16,26 @@
             @Html.DisplayFor(model => model.Nome)
         </div>
     </div>
+    <br />
     @if (Model?.Animais != null)
     {
         <div style="background-color:white">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <td>Tag</td>
-                </tr>
-            </thead>
-            @foreach (var animal in Model.Animais)
-            {
-                <tbody>
+            <table class="table table-striped">
+                <caption style="caption-side:top;color:black;font-weight:bolder">Animais</caption>
+                <thead>
                     <tr>
-                        <td>@animal.Tag</td>
+                        <td>Tag</td>
                     </tr>
+                </thead>
+                <tbody>
+                    @foreach (var animal in Model.Animais)
+                    {
+                        <tr>
+                            <td>@animal.Tag</td>
+                        </tr>
+                    }
                 </tbody>
-            }
-        </table>
+            </table>
         </div>
     }
     <br />
